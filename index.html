@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>BharatLikes</title>
+
+    <!-- Netlify Identity -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <script>
+      const hash = window.location.hash;
+      const search = window.location.search;
+
+      // If ANY Netlify Identity token exists → DO NOT redirect
+      if (
+        hash.includes('recovery_token') ||
+        hash.includes('confirmation_token') ||
+        hash.includes('invite_token') ||
+        search.includes('confirmation_token') ||
+        search.includes('invite_token')
+      ) {
+        // Let Netlify Identity handle the token
+      } else {
+        // Normal visit → redirect to /home
+        window.location.replace('/home/');
+      }
+    </script>
+  </body>
+</html>

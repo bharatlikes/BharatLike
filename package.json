@@ -1,0 +1,17 @@
+{
+  "name": "bharatlikes-enterprise",
+  "private": true,
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "cross-env NODE_ENV=production eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.0",
+    "@quasibit/eleventy-plugin-sitemap": "^2.1.2",
+    "cross-env": "^10.1.0",
+    "luxon": "^3.4.0"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0"
+  }
+}

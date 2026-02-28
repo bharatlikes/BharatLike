@@ -1,0 +1,27 @@
+---js
+{
+  pagination: {
+    data: "collections.allBlogTags",
+    size: 1,
+    alias: "tag"
+  },
+  permalink: function(data) {
+    return "/blog/tag/" + data.tag.toLowerCase().replace(/\s+/g, "-") + "/";
+  }
+}
+---
+
+<h1 style="margin:60px 8%;">Tag: {{ tag }}</h1>
+
+<div class="blog-grid">
+{% for post in collections.blog %}
+  {% if post.data.tags and (tag in post.data.tags) %}
+    <article class="blog-card">
+      <div class="blog-card-thumb">{{ post.data.emoji }}</div>
+      <div class="blog-card-body">
+        <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      </div>
+    </article>
+  {% endif %}
+{% endfor %}
+</div>

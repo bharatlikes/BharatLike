@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dhw67khmq/image/upload/v1772295654/new_favicon_ca68bd.png" />
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dhw67khmq/image/upload/v1772295654/new_favicon_ca68bd.png" />
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}" />
+
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bharatlikes.netlify.app{{ page.url }}" />
+  <meta property="og:site_name" content="BharatLikes" />
+  <meta property="og:locale" content="en_IN" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description }}" />
+
+  <link rel="canonical" href="https://bharatlikes.netlify.app{{ page.url }}" />
+
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+  <!-- Main CSS (match original order) -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Google Fonts (non-render blocking like original) -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Idiqlat:wght@200;300;400&display=swap"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Idiqlat:wght@200;300;400&display=swap" />
+  </noscript>
+
+  <!-- FontAwesome (non-render blocking like original) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </noscript>
+
+  <meta property="og:image" content="https://res.cloudinary.com/dhw67khmq/image/upload/v1772250502/ChatGPT_Image_Feb_28_2026_09_13_46_AM_mm2ekj.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="BharatLikes - Social Media Growth Services India" />
+  <meta name="twitter:image" content="https://res.cloudinary.com/dhw67khmq/image/upload/v1772250502/ChatGPT_Image_Feb_28_2026_09_13_46_AM_mm2ekj.png" />
+</head>
+<body class="{{ bodyClass }}">
+
+  {{ content | safe }}
+
+  <script src="/script.js" defer></script>
+
+</body>
+</html>

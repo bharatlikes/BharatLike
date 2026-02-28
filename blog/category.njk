@@ -1,0 +1,45 @@
+---js
+{
+  layout: "blog-layout.njk",
+  pagination: {
+    data: "collections.allBlogCategories",
+    size: 1,
+    alias: "category"
+  },
+  permalink: function(data) {
+    return "/blog/category/" + data.category.toLowerCase().replace(/\s+/g, "-") + "/";
+  }
+}
+---
+
+<section class="blog-hero blog-hero--small">
+  <h1>Category: <span>{{ category }}</span></h1>
+  <p>Browsing all articles tagged under <strong>{{ category }}</strong>.</p>
+</section>
+
+<section class="blog-section">
+  <div class="blog-grid">
+    {% for post in collections.blog %}
+      {% if post.data.category == category %}
+      <article class="blog-card">
+        <div class="blog-card-thumb">{{ post.data.emoji or "📈" }}</div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag">
+              <a href="/blog/category/{{ post.data.category | slug }}/">{{ post.data.category }}</a>
+            </span>
+            <span class="blog-date">{{ post.date | postDate }}</span>
+          </div>
+          <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+          <p>{{ post.data.description }}</p>
+          <a href="{{ post.url }}" class="blog-read-more">Read Article <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<div style="text-align:center; margin: 20px 0 60px;">
+  <a href="/blog/" class="btn-secondary">← Back to All Posts</a>
+</div>

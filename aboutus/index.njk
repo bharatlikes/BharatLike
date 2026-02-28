@@ -1,0 +1,629 @@
+---
+layout: layout.njk
+title: About BharatLikes – India's Trusted Social Media Growth Agency | New Delhi
+description: Learn about BharatLikes — New Delhi's trusted digital marketing agency helping Indian creators and businesses grow online.
+---
+
+<!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "url": "https://bharatlikes.netlify.app/aboutus/",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "BharatLikes",
+        "url": "https://bharatlikes.netlify.app",
+        "description": "India's trusted social media growth service",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "New Delhi",
+          "addressCountry": "IN"
+        }
+      }
+    }
+    </script>
+
+    <title>About BharatLikes – India's Trusted Social Media Growth Agency | New Delhi</title>
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+    <!-- Google Fonts: non-render-blocking -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Idiqlat:wght@200;300;400&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Idiqlat:wght@200;300;400&display=swap" /></noscript>
+
+    <!-- FontAwesome: non-render-blocking -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      .about-hero {
+        background: linear-gradient(135deg, #fff7ed 0%, #fff 100%);
+        padding: 64px 8% 48px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      body.dark .about-hero {
+        background: linear-gradient(135deg, #0f172a 0%, #000 100%);
+      }
+      .about-hero::before {
+        content: '';
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 360px;
+        height: 360px;
+        background: radial-gradient(
+          circle,
+          rgba(249, 115, 22, 0.12),
+          transparent
+        );
+        border-radius: 50%;
+      }
+      .about-hero-badge {
+        display: inline-block;
+        background: rgba(249, 115, 22, 0.1);
+        color: var(--primary);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 6px 16px;
+        border-radius: 100px;
+        border: 1px solid rgba(249, 115, 22, 0.25);
+        margin-bottom: 20px;
+      }
+      .about-hero h1 {
+        font-size: 48px;
+        font-weight: 800;
+        color: var(--text-dark);
+        line-height: 1.2;
+        margin: 0 0 16px;
+        letter-spacing: -1px;
+        position: relative;
+        z-index: 1;
+      }
+      body.dark .about-hero h1 {
+        color: var(--text-light);
+      }
+      .about-hero p {
+        font-size: 18px;
+        color: var(--muted);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.7;
+        position: relative;
+        z-index: 1;
+      }
+      .about-story {
+        padding: 64px 8%;
+        background: #fff;
+      }
+      body.dark .about-story {
+        background: #0f172a;
+      }
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .story-text h2 {
+        font-size: 34px;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin: 0 0 20px;
+        line-height: 1.2;
+        position: relative;
+        padding-bottom: 14px;
+      }
+      body.dark .story-text h2 {
+        color: var(--text-light);
+      }
+      .story-text h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 2px;
+      }
+      .story-text p {
+        font-size: 16px;
+        color: var(--muted);
+        line-height: 1.8;
+        margin: 0 0 16px;
+      }
+      .story-visual {
+        background: linear-gradient(
+          135deg,
+          rgba(249, 115, 22, 0.07),
+          rgba(251, 146, 60, 0.03)
+        );
+        border: 1px solid rgba(249, 115, 22, 0.2);
+        border-radius: 20px;
+        padding: 36px;
+        text-align: center;
+      }
+      body.dark .story-visual {
+        background: linear-gradient(
+          135deg,
+          rgba(249, 115, 22, 0.08),
+          transparent
+        );
+        border-color: rgba(249, 115, 22, 0.2);
+      }
+      .story-visual .big-icon {
+        font-size: 64px;
+        display: block;
+        margin-bottom: 20px;
+      }
+      .story-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 16px;
+      }
+      .story-stat {
+        background: #fff;
+        border-radius: 12px;
+        padding: 16px 12px;
+        border: 1px solid var(--border);
+      }
+      body.dark .story-stat {
+        background: #1e293b;
+        border-color: rgba(249, 115, 22, 0.15);
+      }
+      .story-stat .num {
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--primary);
+        display: block;
+      }
+      .story-stat .lbl {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 2px;
+        display: block;
+      }
+      .about-values {
+        padding: 64px 8%;
+        background: #f9fafb;
+        text-align: center;
+      }
+      body.dark .about-values {
+        background: linear-gradient(to bottom, #1e293b, #0f172a);
+      }
+      .about-values h2 {
+        font-size: 34px;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin: 0 0 8px;
+        position: relative;
+        padding-bottom: 14px;
+        display: inline-block;
+      }
+      body.dark .about-values h2 {
+        color: var(--text-light);
+      }
+      .about-values h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 2px;
+      }
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .value-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 32px 24px;
+        transition: all 0.3s ease;
+      }
+      body.dark .value-card {
+        background: #1e293b;
+        border-color: rgba(249, 115, 22, 0.15);
+      }
+      .value-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--primary);
+        box-shadow: 0 16px 40px rgba(249, 115, 22, 0.12);
+      }
+      .value-icon {
+        font-size: 40px;
+        display: block;
+        margin-bottom: 16px;
+      }
+      .value-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--primary);
+        margin: 0 0 10px;
+      }
+      .value-card p {
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.7;
+        margin: 0;
+      }
+      .about-location {
+        padding: 64px 8%;
+        background: #fff;
+        text-align: center;
+      }
+      body.dark .about-location {
+        background: #0f172a;
+      }
+      .about-location h2 {
+        font-size: 34px;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin: 0 0 8px;
+        position: relative;
+        padding-bottom: 14px;
+        display: inline-block;
+      }
+      body.dark .about-location h2 {
+        color: var(--text-light);
+      }
+      .about-location h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 2px;
+      }
+      .location-card {
+        max-width: 680px;
+        margin: 40px auto 0;
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        text-align: left;
+      }
+      body.dark .location-card {
+        background: #1e293b;
+        border-color: rgba(249, 115, 22, 0.15);
+      }
+      .location-item {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .loc-icon {
+        width: 42px;
+        height: 42px;
+        background: rgba(249, 115, 22, 0.1);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .location-item h4 {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin: 0 0 4px;
+      }
+      .location-item p {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin: 0;
+        line-height: 1.5;
+      }
+      body.dark .location-item p {
+        color: var(--text-light);
+      }
+      .location-item a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+      .location-item a:hover {
+        text-decoration: underline;
+      }
+      @media (max-width: 768px) {
+        .about-hero {
+          padding: 40px 5% 32px;
+        }
+        .about-hero h1 {
+          font-size: 32px;
+        }
+        .about-hero p {
+          font-size: 15px;
+        }
+        .story-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .about-story,
+        .about-values,
+        .about-location {
+          padding: 40px 5%;
+        }
+        .location-card {
+          grid-template-columns: 1fr;
+          gap: 24px;
+          padding: 24px 20px;
+        }
+      }
+    </style>
+    <header>
+      <div class="container">
+        <div class="logo">BharatLikes</div>
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Toggle navigation"
+          onclick="toggleNav()"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="main-nav">
+          <a href="/home/">Home</a>
+          <a href="/products/">Services</a>
+          <a href="/products/pricing/">Pricing</a>
+          <a href="/blog/">Blog</a>
+          <a href="/aboutus/">About</a>
+          <a href="/contactus/">Contact</a>
+          <a href="#" id="darkToggle" onclick="toggleDark()">🌙</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+
+    <!-- Hero -->
+    <section class="about-hero">
+      <div class="about-hero-badge">Who We Are</div>
+      <h1>Growing Brands,<br />One Like at a Time</h1>
+      <p>
+        BharatLikes is a dedicated digital marketing partner helping businesses
+        and creators build a real, lasting presence on social media.
+      </p>
+    </section>
+
+    <!-- Story -->
+    <section class="about-story">
+      <div class="story-grid">
+        <div class="story-text">
+          <h2>Our Story</h2>
+          <p>
+            Founded in New Delhi, BharatLikes was born out of a simple belief —
+            every business deserves a fair shot at being seen online, regardless
+            of size or budget.
+          </p>
+          <p>
+            We empower small and medium businesses with custom digital marketing
+            strategies, search engine optimisation, and social media management
+            to increase visibility and revenue.
+          </p>
+          <p>
+            From a single Instagram account to a full cross-platform presence,
+            we've helped hundreds of clients punch above their weight online.
+          </p>
+        </div>
+        <div class="story-visual">
+          <span class="big-icon">🚀</span>
+          <div class="story-stats">
+            <div class="story-stat">
+              <span class="num stat-number">50+</span>
+              <span class="lbl">Happy Clients</span>
+            </div>
+            <div class="story-stat">
+              <span class="num stat-number">1K+</span>
+              <span class="lbl">Orders Delivered</span>
+            </div>
+            <div class="story-stat">
+              <span class="num stat-number">4</span>
+              <span class="lbl">Platforms Covered</span>
+            </div>
+            <div class="story-stat">
+              <span class="num">24/7</span>
+              <span class="lbl">Support Available</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="about-values">
+      <h2>What We Stand For</h2>
+      <p style="color: var(--muted); font-size: 16px; margin-top: 8px">
+        The principles that guide every campaign we run
+      </p>
+      <div class="values-grid">
+        <div class="value-card">
+          <span class="value-icon">🎯</span>
+          <h3>Results-First</h3>
+          <p>
+            Every strategy we build is measured against real outcomes —
+            followers, reach, engagement — not vanity metrics.
+          </p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">💡</span>
+          <h3>Affordable Innovation</h3>
+          <p>
+            Premium marketing tools and tactics shouldn't be reserved for big
+            brands. We make them accessible to everyone.
+          </p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">🤝</span>
+          <h3>Honest Partnerships</h3>
+          <p>
+            We're transparent about what we do and how. No hidden fees, no vague
+            promises — just clear, honest service.
+          </p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">⚡</span>
+          <h3>Fast Delivery</h3>
+          <p>
+            Time is money. Orders are processed and delivered quickly so you can
+            see results when it matters.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location -->
+    <section class="about-location">
+      <h2>Find Us</h2>
+      <p style="color: var(--muted); font-size: 16px; margin-top: 8px">
+        Based in New Delhi — serving clients across India
+      </p>
+      <div class="location-card">
+        <div class="location-item">
+          <div class="loc-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <h4>Address</h4>
+            <p>Durga Park Colony, Dashrath Puri<br />New Delhi, Delhi 110045</p>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="loc-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p><a href="https://wa.me/919606380060">+91 96063 80060</a></p>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="loc-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <h4>Email</h4>
+            <p>
+              <a href="mailto:contact.contact.bharatlikes@gmail.com">contact.contact.bharatlikes@gmail.com</a>
+            </p>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="loc-icon"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <h4>Hours</h4>
+            <p>Mon – Sat, 9 AM – 8 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+      <div class="cta-content">
+        <h2>Ready to Grow Your Presence?</h2>
+        <p>
+          Join hundreds of creators and businesses who trust BharatLikes to
+          deliver real results.
+        </p>
+        <a href="/products/pricing/" class="btn-primary btn-large"
+          ><i class="fa-solid fa-rocket"></i> Explore Pricing</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    
+    </main><!-- /#main-content -->
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>BharatLikes</h3>
+            <p>Your trusted partner in social media growth</p>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="/home/">Home</a></li>
+              <li><a href="/products/">Services</a></li>
+              <li><a href="/products/pricing/">Pricing</a>
+          <a href="/blog/">Blog</a></li>
+              <li><a href="/aboutus/">About</a></li>
+              <li><a href="/contactus/">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <p>
+              Durga Park Colony, Dashrath Puri<br />New Delhi, Delhi 110045<br />+91
+              9606380060
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+              <a href="https://www.facebook.com/61585822850890/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook</a>
+              <a href="https://www.instagram.com/bharatlikes_team/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i> Twitter</a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="/privacy-policy/">Privacy Policy</a></li>
+              <li><a href="/terms-of-service/">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © 2026 BharatLikes. All rights reserved. ·
+            <a href="/privacy-policy/">Privacy Policy</a> ·
+            <a href="/terms-of-service/">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <a href="https://wa.me/919606380060" class="whatsapp-btn"
+      ><i class="fa-brands fa-whatsapp"></i> WhatsApp</a
+    >
+    <script src="/script.js" defer></script>
+  </body>
+</html>
