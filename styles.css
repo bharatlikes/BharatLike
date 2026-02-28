@@ -157,8 +157,12 @@ header {
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  text-decoration: none;
+  text-decoration: none !important;
   cursor: pointer;
+}
+a.logo, a.logo:hover, a.logo:visited, a.logo:focus {
+  text-decoration: none !important;
+  outline: none;
 }
 
 header > .container {
