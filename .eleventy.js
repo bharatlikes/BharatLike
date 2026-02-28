@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('script.js');
   eleventyConfig.addPassthroughCopy('admin');
   eleventyConfig.addPassthroughCopy('robots.txt');
+  eleventyConfig.addPassthroughCopy('sitemap.xml');
   eleventyConfig.addPassthroughCopy('_redirects');
   eleventyConfig.addPassthroughCopy('_headers');
 
@@ -56,7 +57,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPlugin(sitemapPlugin, {
     sitemap: {
-      hostname: 'https://yourdomain.com',
+      hostname: 'https://www.bharatlike.com',
     },
   });
 

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bharatlike.netlify.app/sitemap.xml
+Sitemap: https://www.bharatlike.com/sitemap.xml

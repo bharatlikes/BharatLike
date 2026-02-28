@@ -1,1 +1,8 @@
-/admin/*  /admin/index.html  200
+# Old /home/ URL → root (for anyone who bookmarked it)
+/home/            /                     301
+
+# Admin CMS
+/admin/*          /admin/index.html     200
+
+# Sitemap trailing slash fix
+/sitemap.xml/     /sitemap.xml          301
