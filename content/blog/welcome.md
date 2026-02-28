@@ -1,6 +1,6 @@
 
 ---
-title: "Welcome to BharatLikes Blog"
+title: "Welcome to BharatLike Blog"
 date: 2026-02-28
 thumbnail: ""
 ---

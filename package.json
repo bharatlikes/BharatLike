@@ -1,5 +1,5 @@
 {
-  "name": "bharatlikes-enterprise",
+  "name": "bharatlike-enterprise",
   "private": true,
   "scripts": {
     "start": "eleventy --serve",
