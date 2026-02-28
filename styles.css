@@ -157,6 +157,8 @@ header {
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 header > .container {
