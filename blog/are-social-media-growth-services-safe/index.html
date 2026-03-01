@@ -749,7 +749,8 @@ emoji: 🛡️
         grid-template-columns: 1fr 280px;
         grid-template-areas:
           'body   sidebar'
-          'bottom sidebar';
+          'bottom sidebar'
+          'nav    nav';
         gap: 0 48px;
         align-items: start;
         box-sizing: border-box;
@@ -772,16 +773,15 @@ emoji: 🛡️
         min-width: 0;
       }
       .article-nav-row {
-        max-width: 1140px;
-        margin: 0 auto;
-        padding: 32px 8% 48px;
+        grid-area: nav;
         border-top: 1px solid var(--border);
+        padding-top: 32px;
+        margin-top: 32px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
         gap: 12px;
-        box-sizing: border-box;
       }
       .article-nav-row a {
         color: var(--primary);
@@ -1301,8 +1301,7 @@ emoji: 🛡️
           </div>
         </div>
 
-      </div>
-      <nav class="article-nav-row" aria-label="Article navigation">
+        <nav class="article-nav-row" aria-label="Article navigation">
           <a href="/blog/how-to-grow-youtube-channel-india/"
             ><i class="fa-solid fa-arrow-left"></i> Grow YouTube Channel</a
           >
@@ -1310,6 +1309,7 @@ emoji: 🛡️
             >Back to Blog <i class="fa-solid fa-arrow-right"></i
           ></a>
         </nav>
+      </div>
     </main>
 
     <footer>
