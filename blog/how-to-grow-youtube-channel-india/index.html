@@ -383,18 +383,7 @@ emoji: ▶️
       .related-post:hover span {
         color: var(--primary);
       }
-      @media (max-width: 900px) {
-        .article-body {
-          order: 1;
-        }
-        .article-sidebar {
-          order: 2;
-          position: static;
-        }
-        .milestone-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
+
       @media (max-width: 480px) {
         .article-hero {
           padding: 36px 5% 28px;
@@ -733,6 +722,10 @@ emoji: ▶️
           position: static;
           margin-top: 0;
           margin-bottom: 28px;
+        }
+        .sidebar-cta,
+        .article-sidebar .sidebar-card:not(:first-child) {
+          display: none;
         }
         .article-body {
           order: 1;

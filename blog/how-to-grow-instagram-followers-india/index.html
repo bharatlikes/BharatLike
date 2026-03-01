@@ -402,18 +402,7 @@ emoji: 📈
 
       /* Article footer nav */
 
-      @media (max-width: 900px) {
-        .article-body {
-          order: 1;
-        }
-        .article-sidebar {
-          order: 2;
-          position: static;
-        }
-        .stat-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
+
       @media (max-width: 480px) {
         .stat-grid {
           grid-template-columns: 1fr;
@@ -752,6 +741,10 @@ emoji: 📈
           position: static;
           margin-top: 0;
           margin-bottom: 28px;
+        }
+        .sidebar-cta,
+        .article-sidebar .sidebar-card:not(:first-child) {
+          display: none;
         }
         .article-body {
           order: 1;

@@ -543,6 +543,7 @@ body.dark .price {
 .wa-popup {
   display: none;
   width: 300px;
+  max-width: calc(100vw - 56px);
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 8px 40px rgba(0,0,0,0.18);
@@ -693,7 +694,7 @@ body.dark .price {
   color: #fff;
   transition: transform 0.25s;
 }
-.wa-trigger.active i { transform: rotate(90deg); }
+.wa-trigger.active i { transform: rotate(0deg); }
 
 /* Ripple rings */
 .wa-trigger::before,
@@ -735,7 +736,7 @@ body.dark .wa-popup-footer { background: #1e293b; }
 
 @media (max-width: 480px) {
   .wa-widget { bottom: 16px; right: 12px; }
-  .wa-popup { width: calc(100vw - 24px); max-width: 300px; right: 0; }
+  .wa-popup { width: calc(100vw - 80px); max-width: 300px; }
   .wa-trigger { width: 52px; height: 52px; }
   .wa-trigger i { font-size: 24px; }
 }
