@@ -134,7 +134,11 @@ emoji: ⏰
     /></noscript>
 
     <style>
-      *, *::before, *::after { box-sizing: border-box; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
       .article-hero {
         background: linear-gradient(135deg, #fff7ed 0%, #fff 100%);
         padding: 52px 8% 40px;
@@ -410,7 +414,6 @@ emoji: ⏰
       .related-post:hover span {
         color: var(--primary);
       }
-
 
       @media (max-width: 490px) {
         .article-hero {
@@ -738,7 +741,7 @@ emoji: ⏰
         grid-template-columns: 1fr 280px;
         grid-template-areas:
           'body   sidebar'
-          'bottom sidebar'
+          'bottom sidebar';
         gap: 0 48px;
         align-items: start;
         box-sizing: border-box;
