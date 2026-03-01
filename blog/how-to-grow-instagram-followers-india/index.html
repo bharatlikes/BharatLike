@@ -779,10 +779,12 @@ emoji: 📈
 
       @media (max-width: 900px) {
         .article-wrap {
-          display: block;
+          display: flex;
+          flex-direction: column;
           padding: 36px 5%;
         }
         .article-sidebar {
+          order: 1;
           position: static;
           margin-top: 0;
           margin-bottom: 28px;
@@ -791,8 +793,17 @@ emoji: 📈
         .article-sidebar .sidebar-card:not(:first-child) {
           display: none;
         }
+        .article-body {
+          order: 2;
+        }
+        .article-bottom {
+          order: 3;
+        }
         .article-nav-row {
-          padding: 24px 5% 36px;
+          order: 999;
+          margin-top: 24px;
+          padding-top: 24px;
+          font-size: 0.9rem;
         }
       }
     </style>
