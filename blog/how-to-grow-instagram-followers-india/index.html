@@ -747,19 +747,20 @@ emoji: 📈
           flex-direction: column;
           padding: 36px 5%;
         }
+        .article-sidebar {
+          order: 0;
+          position: static;
+          margin-top: 0;
+          margin-bottom: 28px;
+        }
         .article-body {
           order: 1;
         }
-        .article-sidebar {
-          order: 2;
-          position: static;
-          margin-top: 36px;
-        }
         .article-bottom {
-          order: 3;
+          order: 2;
         }
         .article-nav-row {
-          order: 4;
+          order: 3;
           margin-top: 32px;
         }
       }
@@ -1435,10 +1436,21 @@ emoji: 📈
         ? document.querySelector('[data-slug]').dataset.slug
         : '';
 
+      // ── Device ID (unique per browser, persisted in localStorage) ──────────
+      function getDeviceId() {
+        let did = localStorage.getItem('bl_did');
+        if (!did) {
+          did = 'bl-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+          localStorage.setItem('bl_did', did);
+        }
+        return did;
+      }
+
       // ── Likes ──────────────────────────────────────────────────────────────
       async function loadLikes() {
         try {
-          const res = await fetch(API + '/api/likes?slug=' + SLUG);
+          const did = getDeviceId();
+          const res = await fetch(API + '/api/likes?slug=' + SLUG + '&did=' + did);
           const data = await res.json();
           updateLikeUI(data.liked, data.count);
         } catch (e) {
@@ -1450,10 +1462,11 @@ emoji: 📈
         const btn = document.getElementById('likeBtn');
         btn.disabled = true;
         try {
+          const did = getDeviceId();
           const res = await fetch(API + '/api/likes', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ slug }),
+            body: JSON.stringify({ slug, device_id: did }),
           });
           const data = await res.json();
           updateLikeUI(data.liked, data.count);

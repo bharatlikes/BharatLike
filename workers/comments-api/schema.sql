@@ -13,13 +13,13 @@ CREATE TABLE IF NOT EXISTS comments (
 
 CREATE INDEX IF NOT EXISTS idx_comments_slug ON comments(slug);
 
--- Likes table (one like per IP per post)
+-- Likes table (one like per device_id per post)
 CREATE TABLE IF NOT EXISTS likes (
   id         INTEGER PRIMARY KEY AUTOINCREMENT,
   slug       TEXT NOT NULL,
-  ip         TEXT NOT NULL,
+  device_id  TEXT NOT NULL,
   created_at TEXT NOT NULL,
-  UNIQUE(slug, ip)
+  UNIQUE(slug, device_id)
 );
 
 CREATE INDEX IF NOT EXISTS idx_likes_slug ON likes(slug);

@@ -734,8 +734,8 @@ body.dark .wa-message-bubble::before { border-color: transparent #1e293b transpa
 body.dark .wa-popup-footer { background: #1e293b; }
 
 @media (max-width: 480px) {
-  .wa-widget { bottom: 16px; right: 16px; }
-  .wa-popup { width: 280px; }
+  .wa-widget { bottom: 16px; right: 12px; }
+  .wa-popup { width: calc(100vw - 24px); max-width: 300px; right: 0; }
   .wa-trigger { width: 52px; height: 52px; }
   .wa-trigger i { font-size: 24px; }
 }
