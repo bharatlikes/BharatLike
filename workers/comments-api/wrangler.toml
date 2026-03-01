@@ -6,9 +6,4 @@ compatibility_date = "2024-01-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "bharatlike-blog"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
-
-[triggers]
-routes = [
-  { pattern = "www.bharatlike.com/api/*", zone_name = "bharatlike.com" }
-]
+database_id = "2cff2e5e-9c90-4170-a2ab-de582b4544ba"

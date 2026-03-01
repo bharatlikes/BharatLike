@@ -438,7 +438,56 @@ permalink: /index.html
       </div>
     </footer>
 
-        <a href="https://wa.me/919606380060?text=Hi%2C+came+across+your+website.+Would+like+to+know+more+about+the+services+and+the+pricing." class="whatsapp-btn" target="_blank" rel="noopener"><span class="wa-icon"><i class="fa-brands fa-whatsapp"></i></span><span class="wa-hand">👉</span><span class="wa-label"><span class="wa-top">We are here!</span><span class="wa-main">WhatsApp Us</span></span></a>
+            <!-- WhatsApp Chat Widget -->
+    <div class="wa-widget" id="waWidget">
+      <div class="wa-popup" id="waPopup">
+        <div class="wa-popup-header">
+          <div class="wa-avatar">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="wa-online-dot"></span>
+          </div>
+          <div class="wa-header-info">
+            <div class="wa-header-name">BharatLike Support</div>
+            <div class="wa-header-status">🟢 Typically replies instantly</div>
+          </div>
+          <button class="wa-close-btn" onclick="toggleWaWidget()" aria-label="Close">✕</button>
+        </div>
+        <div class="wa-popup-body">
+          <div class="wa-message-bubble">
+            👋 Hi there! Welcome to BharatLike.<br><br>
+            How can we help you grow your social media today?
+            <div class="wa-message-time">Today</div>
+          </div>
+        </div>
+        <div class="wa-popup-footer">
+          <a href="https://wa.me/919606380060?text=Hi%2C+came+across+your+website.+Would+like+to+know+more+about+the+services+and+the+pricing." class="wa-start-btn" target="_blank" rel="noopener" onclick="toggleWaWidget()">
+            <i class="fa-brands fa-whatsapp"></i> Start Chat
+          </a>
+        </div>
+      </div>
+      <button class="wa-trigger" id="waTrigger" onclick="toggleWaWidget()" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="wa-badge">1</span>
+      </button>
+    </div>
+    <script>
+      function toggleWaWidget() {
+        var popup = document.getElementById("waPopup");
+        var trigger = document.getElementById("waTrigger");
+        var badge = trigger.querySelector(".wa-badge");
+        popup.classList.toggle("open");
+        trigger.classList.toggle("active");
+        if (badge) badge.style.display = "none";
+      }
+      setTimeout(function() {
+        var popup = document.getElementById("waPopup");
+        if (!sessionStorage.getItem("waOpened")) {
+          popup.classList.add("open");
+          document.getElementById("waTrigger").classList.add("active");
+          sessionStorage.setItem("waOpened", "1");
+        }
+      }, 4000);
+    </script>
 
     <script src="/script.js" defer></script>
 
