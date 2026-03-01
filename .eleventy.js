@@ -26,7 +26,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection('allBlogCategories', function (collectionApi) {
     const posts = collectionApi.getFilteredByGlob('blog/**/index.html');
     const categories = new Set();
-    posts.forEach(p => {
+    posts.forEach((p) => {
       if (p.data.category) categories.add(p.data.category);
     });
     return [...categories];
@@ -34,8 +34,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection('allBlogTags', function (collectionApi) {
     const posts = collectionApi.getFilteredByGlob('blog/**/index.html');
     const tags = new Set();
-    posts.forEach(p => {
-      if (p.data.tags) p.data.tags.forEach(t => tags.add(t));
+    posts.forEach((p) => {
+      if (p.data.tags) p.data.tags.forEach((t) => tags.add(t));
     });
     return [...tags];
   });
@@ -49,7 +49,7 @@ module.exports = function (eleventyConfig) {
         collapseWhitespace: true,
         removeComments: true,
         minifyCSS: true,
-        minifyJS: true,
+        minifyJS: false,
       });
     }
     return content;
