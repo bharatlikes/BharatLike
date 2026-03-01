@@ -99,7 +99,7 @@ body.dark header {
 }
 
 body.dark .logo {
-  background: linear-gradient(90deg, #ffffff, var(--primary));
+  background: linear-gradient(90deg, #FF9933, #138808);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -152,7 +152,7 @@ header {
   text-transform: none;
   flex-shrink: 0;
   white-space: nowrap;
-  background: linear-gradient(90deg, #c2410c, var(--primary));
+  background: linear-gradient(90deg, #FF9933, #138808);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
