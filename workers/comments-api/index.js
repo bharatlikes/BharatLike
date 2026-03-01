@@ -9,15 +9,33 @@
  *   POST /api/likes                    → toggle like (uses IP-based dedup)
  */
 
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': 'https://www.bharatlike.com',
-  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-  'Content-Type': 'application/json',
-};
+const ALLOWED_ORIGINS = [
+  'https://www.bharatlike.com',
+  'https://bharatlike.com',
+];
+
+function getCorsHeaders(request) {
+  const origin = request.headers.get('Origin') || '';
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    'Access-Control-Allow-Origin': allowedOrigin,
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Content-Type': 'application/json',
+  };
+}
+
+function json(data, status = 200, corsHeaders) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: corsHeaders,
+  });
+}
 
 export default {
   async fetch(request, env) {
+    const CORS_HEADERS = getCorsHeaders(request);
+
     // Handle preflight CORS
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: CORS_HEADERS });
@@ -30,34 +48,34 @@ export default {
       // ── Comments ────────────────────────────────────────────────
       if (path === '/api/comments') {
         if (request.method === 'GET') {
-          return await getComments(request, env, url);
+          return await getComments(request, env, url, CORS_HEADERS);
         }
         if (request.method === 'POST') {
-          return await postComment(request, env);
+          return await postComment(request, env, CORS_HEADERS);
         }
       }
 
       // ── Likes ───────────────────────────────────────────────────
       if (path === '/api/likes') {
         if (request.method === 'GET') {
-          return await getLikes(request, env, url);
+          return await getLikes(request, env, url, CORS_HEADERS);
         }
         if (request.method === 'POST') {
-          return await toggleLike(request, env);
+          return await toggleLike(request, env, CORS_HEADERS);
         }
       }
 
-      return json({ error: 'Not found' }, 404);
+      return json({ error: 'Not found' }, 404, CORS_HEADERS);
     } catch (err) {
-      return json({ error: err.message }, 500);
+      return json({ error: err.message }, 500, CORS_HEADERS);
     }
   },
 };
 
 // ── GET /api/comments?slug=xxx ───────────────────────────────────────────────
-async function getComments(request, env, url) {
+async function getComments(request, env, url, CORS_HEADERS) {
   const slug = url.searchParams.get('slug');
-  if (!slug) return json({ error: 'Missing slug' }, 400);
+  if (!slug) return json({ error: 'Missing slug' }, 400, CORS_HEADERS);
 
   const { results } = await env.DB.prepare(
     `SELECT id, name, comment, created_at
@@ -67,30 +85,28 @@ async function getComments(request, env, url) {
      LIMIT 100`
   ).bind(slug).all();
 
-  return json({ comments: results });
+  return json({ comments: results }, 200, CORS_HEADERS);
 }
 
 // ── POST /api/comments ───────────────────────────────────────────────────────
-async function postComment(request, env) {
+async function postComment(request, env, CORS_HEADERS) {
   const body = await request.json();
   const { slug, name, comment } = body;
 
   if (!slug || !name || !comment) {
-    return json({ error: 'Missing fields' }, 400);
+    return json({ error: 'Missing fields' }, 400, CORS_HEADERS);
   }
 
-  // Basic sanitisation
   const cleanName = name.trim().slice(0, 60);
   const cleanComment = comment.trim().slice(0, 1000);
 
   if (cleanName.length < 2 || cleanComment.length < 3) {
-    return json({ error: 'Name or comment too short' }, 400);
+    return json({ error: 'Name or comment too short' }, 400, CORS_HEADERS);
   }
 
-  // Simple spam check - block obvious spam patterns
   const spamPatterns = /http[s]?:\/\/|viagra|casino|porn|xxx/i;
   if (spamPatterns.test(cleanComment)) {
-    return json({ error: 'Comment rejected' }, 400);
+    return json({ error: 'Comment rejected' }, 400, CORS_HEADERS);
   }
 
   await env.DB.prepare(
@@ -98,65 +114,53 @@ async function postComment(request, env) {
      VALUES (?, ?, ?, 1, datetime('now'))`
   ).bind(slug, cleanName, cleanComment).run();
 
-  return json({ success: true, message: 'Comment posted!' });
+  return json({ success: true, message: 'Comment posted!' }, 200, CORS_HEADERS);
 }
 
 // ── GET /api/likes?slug=xxx ──────────────────────────────────────────────────
-async function getLikes(request, env, url) {
+async function getLikes(request, env, url, CORS_HEADERS) {
   const slug = url.searchParams.get('slug');
-  if (!slug) return json({ error: 'Missing slug' }, 400);
+  if (!slug) return json({ error: 'Missing slug' }, 400, CORS_HEADERS);
 
   const row = await env.DB.prepare(
     `SELECT COUNT(*) as count FROM likes WHERE slug = ?`
   ).bind(slug).first();
 
-  // Check if this IP already liked it
   const ip = request.headers.get('CF-Connecting-IP') || '0.0.0.0';
   const existing = await env.DB.prepare(
     `SELECT id FROM likes WHERE slug = ? AND ip = ?`
   ).bind(slug, ip).first();
 
-  return json({ count: row.count, liked: !!existing });
+  return json({ count: row.count, liked: !!existing }, 200, CORS_HEADERS);
 }
 
 // ── POST /api/likes ──────────────────────────────────────────────────────────
-async function toggleLike(request, env) {
+async function toggleLike(request, env, CORS_HEADERS) {
   const body = await request.json();
   const { slug } = body;
-  if (!slug) return json({ error: 'Missing slug' }, 400);
+  if (!slug) return json({ error: 'Missing slug' }, 400, CORS_HEADERS);
 
   const ip = request.headers.get('CF-Connecting-IP') || '0.0.0.0';
 
-  // Check if already liked
   const existing = await env.DB.prepare(
     `SELECT id FROM likes WHERE slug = ? AND ip = ?`
   ).bind(slug, ip).first();
 
   if (existing) {
-    // Unlike
     await env.DB.prepare(
       `DELETE FROM likes WHERE slug = ? AND ip = ?`
     ).bind(slug, ip).run();
     const row = await env.DB.prepare(
       `SELECT COUNT(*) as count FROM likes WHERE slug = ?`
     ).bind(slug).first();
-    return json({ liked: false, count: row.count });
+    return json({ liked: false, count: row.count }, 200, CORS_HEADERS);
   } else {
-    // Like
     await env.DB.prepare(
       `INSERT INTO likes (slug, ip, created_at) VALUES (?, ?, datetime('now'))`
     ).bind(slug, ip).run();
     const row = await env.DB.prepare(
       `SELECT COUNT(*) as count FROM likes WHERE slug = ?`
     ).bind(slug).first();
-    return json({ liked: true, count: row.count });
+    return json({ liked: true, count: row.count }, 200, CORS_HEADERS);
   }
-}
-
-// ── Helper ───────────────────────────────────────────────────────────────────
-function json(data, status = 200) {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: CORS_HEADERS,
-  });
 }
