@@ -198,15 +198,6 @@ emoji: 🛡️
         max-width: 720px;
         line-height: 1.7;
       }
-      .article-layout {
-        display: grid;
-        grid-template-columns: 1fr 280px;
-        gap: 48px;
-        max-width: 1140px;
-        margin: 0 auto;
-        padding: 52px 8%;
-        align-items: start;
-      }
       .article-body h2 {
         font-size: 1.45rem;
         font-weight: 800;
@@ -320,10 +311,6 @@ emoji: 🛡️
         color: #dc2626;
         font-weight: 700;
       }
-      .article-sidebar {
-        position: sticky;
-        top: 80px;
-      }
       .sidebar-card {
         background: #fff;
         border: 1px solid var(--border);
@@ -426,35 +413,7 @@ emoji: 🛡️
       .related-post:hover span {
         color: var(--primary);
       }
-      .article-nav {
-        border-top: 1px solid var(--border);
-        padding: 32px 8%;
-        max-width: 1140px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-      .article-nav a {
-        color: var(--primary);
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.9rem;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .article-nav a:hover {
-        text-decoration: underline;
-      }
       @media (max-width: 900px) {
-        .article-layout {
-          display: flex;
-          flex-direction: column;
-          grid-template-columns: unset;
-        }
         .article-body {
           order: 1;
         }
@@ -474,9 +433,6 @@ emoji: 🛡️
           order: -1;
           max-height: 220px;
           aspect-ratio: 16/9;
-        }
-        .article-layout {
-          padding: 36px 5%;
         }
       }
 
@@ -652,9 +608,7 @@ emoji: 🛡️
       body.dark .stat-box .label {
         color: #94a3b8;
       }
-      body.dark .article-layout {
-        background: transparent;
-      }
+      body.dark
       body.dark .share-section,
       body.dark .engagement-section {
         border-color: #334155;
@@ -691,6 +645,58 @@ emoji: 🛡️
       body.dark .time-table tr:nth-child(even) {
         background: #0f172a;
       }
+
+      /* ── Article layout: 2-col desktop, 1-col mobile ── */
+      .article-wrap {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 52px 8%;
+        display: grid;
+        grid-template-columns: 1fr 280px;
+        grid-template-areas:
+          "body   sidebar"
+          "bottom sidebar"
+          "nav    nav";
+        gap: 0 48px;
+        align-items: start;
+      }
+      .article-body    { grid-area: body; }
+      .article-sidebar { grid-area: sidebar; position: sticky; top: 80px; }
+      .article-bottom  { grid-area: bottom; }
+      .article-nav-row {
+        grid-area: nav;
+        border-top: 1px solid var(--border);
+        padding-top: 32px;
+        margin-top: 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .article-nav-row a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .article-nav-row a:hover { text-decoration: underline; }
+
+      @media (max-width: 900px) {
+        .article-wrap {
+          display: flex;
+          flex-direction: column;
+          padding: 36px 5%;
+        }
+        .article-body    { order: 1; }
+        .article-sidebar { order: 2; position: static; margin-top: 36px; }
+        .article-bottom  { order: 3; }
+        .article-nav-row { order: 4; margin-top: 32px; }
+      }
+
     </style>
   </head>
   <body>
@@ -748,7 +754,8 @@ emoji: 🛡️
       </div>
       </section>
 
-      <div class="article-layout">
+      <div class="article-wrap">
+
         <article class="article-body">
           <p>
             We're going to be upfront with you — we run a social media growth
@@ -1064,10 +1071,9 @@ emoji: 🛡️
             </a>
           </div>
         </aside>
-      </div>
 
-      <div style="max-width:1140px;margin:0 auto;padding:0 8% 52px">
-      <div class="share-section">
+        <div class="article-bottom">
+          <div class="share-section">
         <h3>📤 Share this article</h3>
         <div class="share-buttons">
           <a class="share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.bharatlike.com%2Fblog%2Fare-social-media-growth-services-safe%2F" target="_blank" rel="noopener">
@@ -1094,7 +1100,7 @@ emoji: 🛡️
         </div>
       </div>
 
-      <div class="engagement-section" data-slug="are-social-media-growth-services-safe">
+          <div class="engagement-section" data-slug="are-social-media-growth-services-safe">
         <div class="like-row">
           <button class="like-btn" id="likeBtn" data-slug="are-social-media-growth-services-safe" onclick="toggleLike('are-social-media-growth-services-safe')">
             <span class="heart">🤍</span> Like this article
@@ -1113,11 +1119,14 @@ emoji: 🛡️
           </div>
         </div>
       </div>
-      </div>
-      <nav class="article-nav" aria-label="Article navigation">
+        </div>
+
+        <nav class="article-nav-row" aria-label="Article navigation">
         <a href="/blog/how-to-grow-youtube-channel-india/"><i class="fa-solid fa-arrow-left"></i> Grow YouTube Channel</a>
         <a href="/blog/">Back to Blog <i class="fa-solid fa-arrow-right"></i></a>
       </nav>
+
+      </div>
     </main>
 
     <footer>
