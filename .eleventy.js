@@ -48,7 +48,7 @@ module.exports = function (eleventyConfig) {
       return htmlmin.minify(content, {
         collapseWhitespace: true,
         removeComments: true,
-        minifyCSS: true,
+        minifyCSS: false,
         minifyJS: false,
       });
     }
