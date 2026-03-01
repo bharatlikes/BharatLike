@@ -825,7 +825,7 @@ emoji: 🛡️
       }
     </style>
   </head>
-  <body style="overflow-x:hidden">
+  <body style="overflow-x: hidden">
     <header>
       <div class="container">
         <a href="/" class="logo">BharatLike</a>
@@ -839,7 +839,7 @@ emoji: 🛡️
         </button>
         <nav id="main-nav">
           <a href="/">Home</a>
-          <a href="/products/">Services</a>
+          <a href="/products/">Products</a>
           <a href="/products/pricing/">Pricing</a>
           <a href="/blog/" class="active">Blog</a>
           <a href="/aboutus/">About</a>
@@ -1311,15 +1311,14 @@ emoji: 🛡️
         </div>
       </div>
 
-
-        <nav class="article-nav-row" aria-label="Article navigation">
-          <a href="/blog/how-to-grow-youtube-channel-india/"
-            ><i class="fa-solid fa-arrow-left"></i> Grow YouTube Channel</a
-          >
-          <a href="/blog/"
-            >Back to Blog <i class="fa-solid fa-arrow-right"></i
-          ></a>
-        </nav>
+      <nav class="article-nav-row" aria-label="Article navigation">
+        <a href="/blog/how-to-grow-youtube-channel-india/"
+          ><i class="fa-solid fa-arrow-left"></i> Grow YouTube Channel</a
+        >
+        <a href="/blog/"
+          >Back to Blog <i class="fa-solid fa-arrow-right"></i
+        ></a>
+      </nav>
     </main>
 
     <footer>
@@ -1333,7 +1332,7 @@ emoji: 🛡️
             <h3>Quick Links</h3>
             <ul>
               <li><a href="/">Home</a></li>
-              <li><a href="/products/">Services</a></li>
+              <li><a href="/products/">Products</a></li>
               <li><a href="/products/pricing/">Pricing</a></li>
               <li><a href="/blog/">Blog</a></li>
               <li><a href="/aboutus/">About</a></li>
@@ -1380,7 +1379,7 @@ emoji: 🛡️
         </div>
       </div>
     </footer>
-     <!-- WhatsApp Chat Widget -->
+     <!-- WhatsApp Chat Widget --
     <div class="wa-widget" id="waWidget">
       <div class="wa-popup" id="waPopup">
         <div class="wa-popup-header">
@@ -1459,7 +1458,11 @@ emoji: 🛡️
       function getDeviceId() {
         let did = localStorage.getItem('bl_did');
         if (!did) {
-          did = 'bl-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+          did =
+            'bl-' +
+            Date.now().toString(36) +
+            '-' +
+            Math.random().toString(36).slice(2, 10);
           localStorage.setItem('bl_did', did);
         }
         return did;
@@ -1469,7 +1472,9 @@ emoji: 🛡️
       async function loadLikes() {
         try {
           const did = getDeviceId();
-          const res = await fetch(API + '/api/likes?slug=' + SLUG + '&did=' + did);
+          const res = await fetch(
+            API + '/api/likes?slug=' + SLUG + '&did=' + did
+          );
           const data = await res.json();
           updateLikeUI(data.liked, data.count);
         } catch (e) {
