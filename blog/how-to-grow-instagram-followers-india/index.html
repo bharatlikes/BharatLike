@@ -428,9 +428,15 @@ emoji: 📈
 
       @media (max-width: 900px) {
         .article-layout {
-          grid-template-columns: 1fr;
+          display: flex;
+          flex-direction: column;
+          grid-template-columns: unset;
+        }
+        .article-body {
+          order: 1;
         }
         .article-sidebar {
+          order: 2;
           position: static;
         }
         .stat-grid {
@@ -457,23 +463,7 @@ emoji: 📈
         }
       }
 
-      /* ── Mobile layout fix ─────────────────────────────── */
-      @media (max-width: 900px) {
-        .article-layout {
-          display: flex;
-          flex-direction: column;
-        }
-        .article-sidebar {
-          order: 2;
-          position: static;
-        }
-        .article-body {
-          order: 1;
-        }
-        .article-nav {
-          order: 3;
-        }
-      }
+
 
       /* ── Share buttons ─────────────────────────────────── */
       .share-section {
@@ -618,6 +608,72 @@ emoji: 📈
       .comment-text { font-size: 0.9rem; color: var(--text-dark); line-height: 1.6; }
       .no-comments { color: var(--muted); font-size: 0.9rem; text-align: center; padding: 20px 0; }
 
+
+      /* ── Dark mode fixes ───────────────────────────────── */
+      body.dark .article-hero {
+        background: linear-gradient(135deg, #1e1b18 0%, #0f0f0f 100%);
+      }
+      body.dark .article-body h2,
+      body.dark .article-body h3,
+      body.dark .article-body p,
+      body.dark .article-body li,
+      body.dark .article-body strong {
+        color: #e2e8f0;
+      }
+      body.dark .article-hero h1 {
+        color: #f1f5f9;
+      }
+      body.dark .article-hero .lead {
+        color: #94a3b8;
+      }
+      body.dark .milestone-box,
+      body.dark .stat-box {
+        background: #1e293b;
+        border-color: #334155;
+      }
+      body.dark .milestone-box .label,
+      body.dark .stat-box .label {
+        color: #94a3b8;
+      }
+      body.dark .article-layout {
+        background: transparent;
+      }
+      body.dark .share-section,
+      body.dark .engagement-section {
+        border-color: #334155;
+      }
+      body.dark .share-section h3,
+      body.dark .comments-section h3 {
+        color: #f1f5f9;
+      }
+      body.dark .like-btn {
+        background: #1e293b;
+        border-color: #334155;
+        color: #e2e8f0;
+      }
+      body.dark .like-btn:hover,
+      body.dark .like-btn.liked {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: #1e1510;
+      }
+      body.dark .no-comments {
+        color: #64748b;
+      }
+      body.dark .article-nav {
+        border-color: #334155;
+      }
+      body.dark .time-table th {
+        background: #1e293b;
+        color: #e2e8f0;
+      }
+      body.dark .time-table td {
+        color: #cbd5e1;
+        border-color: #334155;
+      }
+      body.dark .time-table tr:nth-child(even) {
+        background: #0f172a;
+      }
     </style>
   </head>
   <body>
