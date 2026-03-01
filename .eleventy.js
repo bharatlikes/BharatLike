@@ -39,21 +39,8 @@ module.exports = function (eleventyConfig) {
     });
     return [...tags];
   });
-  eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
-    if (
-      process.env.NODE_ENV === 'production' &&
-      outputPath &&
-      outputPath.endsWith('.html')
-    ) {
-      return htmlmin.minify(content, {
-        collapseWhitespace: true,
-        removeComments: true,
-        minifyCSS: false,
-        minifyJS: false,
-      });
-    }
-    return content;
-  });
+  // htmlmin disabled — was mangling HTML structure and breaking mobile layouts
+  // eleventyConfig.addTransform('htmlmin', function (content, outputPath) { ... });
 
   eleventyConfig.addPlugin(sitemapPlugin, {
     sitemap: {
