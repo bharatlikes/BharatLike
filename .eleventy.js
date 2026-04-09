@@ -33,11 +33,14 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addCollection('allBlogTags', function (collectionApi) {
     const posts = collectionApi.getFilteredByGlob('blog/**/index.html');
-    const tags = new Set();
+    const slugMap = new Map();
     posts.forEach((p) => {
-      if (p.data.tags) p.data.tags.forEach((t) => tags.add(t));
+      if (p.data.tags) p.data.tags.forEach((t) => {
+        const slug = t.toLowerCase().replace(/\s+/g, '-');
+        if (!slugMap.has(slug)) slugMap.set(slug, t);
+      });
     });
-    return [...tags];
+    return [...slugMap.values()];
   });
   // htmlmin disabled — was mangling HTML structure and breaking mobile layouts
   // eleventyConfig.addTransform('htmlmin', function (content, outputPath) { ... });
