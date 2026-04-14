@@ -24,7 +24,9 @@ permalink: "/blog/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumbe
       <div class="blog-card-body">
         <div class="blog-card-meta">
           <span class="blog-tag">
+            {% if post.data.category %}
             <a href="/blog/category/{{ post.data.category | slug }}/">{{ post.data.category }}</a>
+            {% endif %}
           </span>
           <span class="blog-date">{{ post.date | postDate }}</span>
         </div>

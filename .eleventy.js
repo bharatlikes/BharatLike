@@ -16,6 +16,7 @@ module.exports = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj).toFormat('dd LLL yyyy');
   });
   eleventyConfig.addFilter('slug', function (str) {
+    if (!str) return '';
     return str.toLowerCase().replace(/\s+/g, '-');
   });
   eleventyConfig.addCollection('blog', function (collectionApi) {
