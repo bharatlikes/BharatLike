@@ -1,1 +1,7 @@
 index.html
+# Ignore static blog archive pages when they have been manually uploaded into
+# the source tree. Eleventy generates these paths from the Nunjucks templates.
+blog/index.html
+blog/page/
+blog/category/
+blog/tag/
