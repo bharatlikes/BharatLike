@@ -111,26 +111,218 @@
         }
       </script>
 
-      <article class="article-page">
+      <style>
+        /* Scoped to this post: the shared stylesheet remains unchanged. */
+        .trusted-post {
+          background: #fff;
+          color: #374151;
+        }
+        .trusted-post .article-content {
+          max-width: 1140px;
+          margin: 0 auto;
+          padding-left: 8%;
+          padding-right: 8%;
+        }
+        .trusted-post .article-hero {
+          background: linear-gradient(135deg, #fff7ed 0%, #fff 100%);
+          border-bottom: 1px solid var(--border);
+          padding: 52px 0 40px;
+        }
+        .trusted-post .article-hero-inner {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) 340px;
+          gap: 40px;
+          align-items: center;
+        }
+        .trusted-post .article-hero-image {
+          aspect-ratio: 4 / 3;
+          background: #ffedd5;
+          border-radius: 16px;
+          display: grid;
+          font-size: 5rem;
+          overflow: hidden;
+          place-items: center;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .trusted-post .article-breadcrumb {
+          color: var(--muted);
+          font-size: 0.82rem;
+          margin: 0 0 18px;
+        }
+        .trusted-post .article-breadcrumb a,
+        .trusted-post .article-tags a {
+          color: var(--primary);
+          text-decoration: none;
+        }
+        .trusted-post .article-meta {
+          align-items: center;
+          color: var(--muted);
+          display: flex;
+          flex-wrap: wrap;
+          font-size: 0.82rem;
+          gap: 14px;
+          margin-bottom: 16px;
+        }
+        .trusted-post .article-meta span:first-child {
+          background: #fff7ed;
+          border: 1px solid #fed7aa;
+          border-radius: 20px;
+          color: var(--primary);
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          padding: 3px 10px;
+          text-transform: uppercase;
+        }
+        .trusted-post h1 {
+          color: var(--text-dark);
+          font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+          line-height: 1.25;
+          margin: 0 0 16px;
+        }
+        .trusted-post .article-lead {
+          color: var(--muted);
+          font-size: 1.05rem;
+          line-height: 1.7;
+          margin: 0;
+        }
+        .trusted-post .article-body {
+          font-size: 0.97rem;
+          line-height: 1.8;
+          max-width: 820px;
+          padding-top: 52px;
+          padding-bottom: 64px;
+        }
+        .trusted-post .article-body h2 {
+          border-left: 4px solid var(--primary);
+          color: var(--text-dark);
+          font-size: 1.45rem;
+          margin: 40px 0 14px;
+          padding-left: 14px;
+        }
+        .trusted-post .article-body h3 {
+          color: var(--text-dark);
+          font-size: 1.1rem;
+          margin: 28px 0 10px;
+        }
+        .trusted-post .article-body p {
+          margin: 0 0 18px;
+        }
+        .trusted-post .article-body ul,
+        .trusted-post .article-body ol {
+          margin: 0 0 18px;
+          padding-left: 22px;
+        }
+        .trusted-post .article-body li {
+          margin-bottom: 8px;
+        }
+        .trusted-post .article-toc,
+        .trusted-post .article-note {
+          border-radius: 8px;
+          margin: 24px 0;
+          padding: 16px 20px;
+        }
+        .trusted-post .article-toc {
+          background: #fff7ed;
+          border: 1px solid #fed7aa;
+          border-left: 4px solid var(--primary);
+        }
+        .trusted-post .article-note {
+          background: #eff6ff;
+          border-left: 4px solid #2563eb;
+          color: #1e3a8a;
+        }
+        .trusted-post .article-toc a {
+          color: var(--primary);
+          text-decoration: none;
+        }
+        .trusted-post .article-benefits {
+          display: grid;
+          gap: 16px;
+          grid-template-columns: repeat(2, 1fr);
+          margin: 24px 0;
+        }
+        .trusted-post .article-benefits div {
+          background: #fff;
+          border: 1px solid var(--border);
+          border-radius: 10px;
+          padding: 18px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .trusted-post .article-benefits strong,
+        .trusted-post .article-benefits span {
+          display: block;
+        }
+        .trusted-post .article-benefits strong {
+          color: var(--text-dark);
+          margin-bottom: 4px;
+        }
+        .trusted-post .article-benefits span {
+          color: var(--muted);
+          font-size: 0.9rem;
+          line-height: 1.5;
+        }
+        .trusted-post .article-cta a {
+          background: var(--primary);
+          border-radius: 8px;
+          color: #fff;
+          display: inline-block;
+          font-weight: 700;
+          padding: 11px 18px;
+          text-decoration: none;
+        }
+        .trusted-post .article-tags {
+          border-top: 1px solid var(--border);
+          margin-top: 42px;
+          padding-top: 22px;
+        }
+        .trusted-post .article-tags a {
+          display: inline-block;
+          margin: 4px 8px 4px 0;
+        }
+        @media (max-width: 760px) {
+          .trusted-post .article-hero-inner {
+            grid-template-columns: 1fr;
+          }
+          .trusted-post .article-hero-image {
+            max-width: 430px;
+            order: -1;
+          }
+          .trusted-post .article-benefits {
+            grid-template-columns: 1fr;
+          }
+        }
+      </style>
+
+      <article class="trusted-post">
         <header class="article-hero">
-          <div class="article-content">
-            <p class="article-breadcrumb">
-              <a href="/">Home</a> / <a href="/blog/">Blog</a> / Instagram
-            </p>
-            <div class="article-meta">
-              <span>Instagram</span
-              ><time datetime="2026-07-19">19 Jul 2026</time
-              ><span>8 min read</span>
+          <div class="article-content article-hero-inner">
+            <div>
+              <p class="article-breadcrumb">
+                <a href="/">Home</a> / <a href="/blog/">Blog</a> / Instagram
+              </p>
+              <div class="article-meta">
+                <span>Instagram</span
+                ><time datetime="2026-07-19">19 Jul 2026</time
+                ><span>8 min read</span>
+              </div>
+              <h1>
+                Trusted Instagram Likes Provider – Grow Your Instagram with
+                BharatLike
+              </h1>
+              <p class="article-lead">
+                Discover why quality, privacy and dependable support matter when
+                choosing an Instagram likes provider—and how BharatLike can
+                support your growth strategy.
+              </p>
             </div>
-            <h1>
-              Trusted Instagram Likes Provider – Grow Your Instagram with
-              BharatLike
-            </h1>
-            <p class="article-lead">
-              Discover why quality, privacy and dependable support matter when
-              choosing an Instagram likes provider—and how BharatLike can
-              support your growth strategy.
-            </p>
+            <div
+              class="article-hero-image"
+              role="img"
+              aria-label="Instagram engagement illustration"
+            >
+              ❤️
+            </div>
           </div>
         </header>
 
